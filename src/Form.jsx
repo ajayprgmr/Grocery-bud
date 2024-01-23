@@ -13,7 +13,7 @@ const Form = ({ addItem }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className='form'>
+    <form onSubmit={handleSubmit}>
       <h4 className='title'>grocery bud</h4>
       <div className='form-control'>
         <input

@@ -18,9 +18,11 @@ const SingleItem = ({ item, removeItem }) => {
         onChange={handleClick}
       />
       <h6 className={completed ? 'name-status' : 'name'}>{item.name}</h6>
-      <button className='btn' onClick={() => removeItem(item.id)}>
-        delete
-      </button>
+      <div className='delete-btn-container'>
+        <button className='btn' onClick={() => removeItem(item.id)}>
+          delete
+        </button>
+      </div>
     </div>
   )
 }
