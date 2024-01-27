@@ -13,16 +13,17 @@ body {
 }
 .section-center {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: aliceblue;
   width: 40vw;
+  height: fit-content;
   flex-direction: column;
   padding-bottom: 20px;
   border-radius: 10px;
 }
 .title {
-  margin:10px 0;
+  margin: 10px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,4 +118,8 @@ body {
   font-size: 0.7rem;
   text-decoration: line-through;
   text-decoration-color: red;
+}
+body .Toastify__toast-container {
+  width: fit-content !important;
+  transition: transform 0.5s ease-in-out;
 }

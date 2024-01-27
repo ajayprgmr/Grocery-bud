@@ -1,13 +1,17 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types' // Import PropTypes
 import './app.css'
+import { toast } from 'react-toastify'
 
 const Form = ({ addItem }) => {
   const [newItemName, setNewItemName] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (!newItemName) return
+    if (!newItemName) {
+      toast.error('specify the item')
+      return
+    }
     addItem(newItemName)
     setNewItemName('')
   }

@@ -1,23 +1,16 @@
-import { useState } from 'react'
 import PropTypes from 'prop-types'
 import './App.css'
 
-const SingleItem = ({ item, removeItem }) => {
-  const [completed, setCompleted] = useState(item.completed)
-
-  const handleClick = () => {
-    setCompleted(!completed) // toggle the completed status using setCompleted
-  }
-
+const SingleItem = ({ item, removeItem, editItem }) => {
   return (
     <div className='sinlge-item'>
       <input
         type='checkbox'
         className='checkbox'
-        checked={completed}
-        onChange={handleClick}
+        checked={item.completed}
+        onChange={() => editItem(item.id)}
       />
-      <h6 className={completed ? 'name-status' : 'name'}>{item.name}</h6>
+      <h6 className={item.completed ? 'name-status' : 'name'}>{item.name}</h6>
       <div className='delete-btn-container'>
         <button className='btn' onClick={() => removeItem(item.id)}>
           delete
@@ -35,6 +28,7 @@ SingleItem.propTypes = {
     completed: PropTypes.bool.isRequired,
   }).isRequired,
   removeItem: PropTypes.func.isRequired,
+  editItem: PropTypes.func.isRequired,
 }
 
 export default SingleItem
